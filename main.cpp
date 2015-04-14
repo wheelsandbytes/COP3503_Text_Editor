@@ -2,117 +2,130 @@
 
 int main()
 {
-	Link item1;
-	char sign='h';
-	string filename1,filename2,str,str2;
+	Link link;
+	char input = 'h';
+	string file_name_1, file_name_2, str_1, str_2;
 	int num;
-		cout<<"           *****************************************************"<<endl
-		    <<"                                   欢迎使用文本编辑器            "<<endl
-		    <<"           *****************************************************"<<endl;
-	cout<<"请输入文件名<eg. file_in.txt>:";
-	cin>>filename1;
-	item1.setStart();
-	item1.setEnd();
-	item1.read_from_infile(filename1);
+    cout<< "=====================================================" <<endl
+        << "            The editor has been activated            " <<endl
+        << "=====================================================" <<endl;
+	cout << "Enter file name: ";
+	cin >> file_name_1;
+	link.setStart();
+	link.setEnd();
+	link.read_from_infile(file_name_1);
 	system("CLS");
 	do{
-		switch(sign) {
+		switch(input)
+        {
 		case '?':
 		case 'h':
-			cout <<"*****************************************************************"<<endl;
-			cout <<"                         操作步骤                                  "<<endl;
-                        cout << "         a:只替换某行的某个子字符串    c:改变一行的内容           " << endl
-			     << "         d:删除指定的一行              f:根据输入的字符串查找行   " <<endl
-			     << "         g:显示指定的一行              i:插入一行                 " <<endl
-			     << "         r:读取文件                    k:保存文件                 "<<endl
-                             << "         o:查找子串                    q:退出程序                 "<<endl
-			     << "         m:新建文件                    v:查看所有                 "<<endl
-			     << "         w:当前内容写入另外一个文件    x:清屏                     "<<endl
-                             << "         l:总行数                                                "<<endl
-		     	     <<"*****************************************************************"<<endl;
+                
+			cout << "================================================" <<endl;
+			cout << "                    Commands                    " <<endl;
+            cout << "a: Modify part of a line       c: Modify line   " << endl
+			     << "d: Remove a line               f: Find line     " <<endl
+			     << "g: Display line                  i: Insert line " <<endl
+			     << "r: Read file                   k: Save file     " <<endl
+                 << "o: Find part of a line         q: Exit          " <<endl
+			     << "m: Create file                 v: Display all   " <<endl
+			     << "w: Cover file content          x: Clean all     " <<endl
+                 << "l: Display length                               " <<endl
+                 <<"=================================================" <<endl;
 			break;
 		case'x':
 			system("CLS");
 			break;
 		case'o':
-			cout<<"输入你想查找的子串:";
-			cin>>str;
-			item1.findinallstring(str);
+			cout << "Enter string: ";
+			cin >> str_1;
+			link.findinallstring(str_1);
 			break;
 		case'a':
-			cout<<"请问你想修改第几行？： ";
-			cin>>num;
-			cout<<"请输入你要修改的子串";
-			cin>>str;
-			item1.changeonelinecharacter(num,str);
+			cout << "Enter line number: ";
+			cin >> num;
+            cout << endl;
+			cout << "Enter string: ";
+			cin >> str_1;
+            cout << endl;
+			link.changeonelinecharacter(num,str_1);
 			break;
 
 		case'c':
-			cout<<"请问你想修改第几行？：";
-			cin>>num;
-			cout<<"请输入新字符串内容：";
-			cin>>str;
-			item1.changeline(num,str);
+			cout << "Enter line number: ";
+			cin >> num;
+            cout << endl;
+			cout << "Enter string: ";
+			cin >> str_1;
+            cout << endl;
+			link.changeline(num,str_1);
 			break;
 		case'd':
-			cout<<"请问你想删掉第几行？:";
-			cin>>num;
-			item1.deleteoneline(num);
-			item1.print();
+			cout << "Enter line number: ";
+			cin >> num;
+            cout << endl;
+			link.deleteoneline(num);
+			link.print();
 			break;
 		case'f':
-			cout<<"请输入你想查找的字符串："<<endl;
-			cin>>str;
-			item1.findappointstring(str);
+			cout << "Enter string: ";
+			cin >> str_1;
+            cout << endl;
+			link.findappointstring(str_1);
 			break;
 		case'g':
-			cout<<"请输入行序号："<<endl;
-			cin>>num;
-			item1.setpos(num);
-			item1.displayoneline();
+			cout << "Enter line number";
+			cin >> num;
+            cout << endl;
+			link.setpos(num);
+			link.displayoneline();
 			break;
 		case'i':
-			cout<<"请问你想插在第几行后面：";
-			cin>>num;
-			cout<<"请输入你要插入的字符串：";
-			cin>>str;
-			item1.insert(num,str);
-			item1.print();
+			cout << "Enter line number (preceeding): ";
+			cin >> num;
+            cout << endl;
+			cout << "Enter string: ";
+			cin >> str_1;
+            cout << endl;
+			link.insert(num,str_1);
+			link.print();
 			break;
 		case'l':
-			item1.longlength();
+			link.longlength();
 			break;
 
 		case'r':
 			{
-				item1.clear();
-				item1.read_from_infile(filename1);
-				item1.print();
+				link.clear();
+				link.read_from_infile(filename1);
+				link.print();
 			}
 			break;
 		case'v':
-			item1.print();
+			link.print();
 			break;
 		case'w':
-			cout<<"请输入文件名<eg. file_in.txt>:";
-	        cin>>filename2;
-			item1.save_to_file(filename2);
+			cout << "Enter file name: ";
+	        cin >> filename2;
+            cout << endl;
+			link.save_to_file(filename2);
 			break;
 		case'k':
-			item1.save_to_file(filename1);
+			link.save_to_file(filename1);
 			break;
 		case'm':
-			char newfile[30];
-			cout<<"请输入新建文件名:"<<endl;
-			cin>>newfile;
+			char new_file[30];
+			cout << "Enter file name: ";
+			cin >> new_file;
+            cout << endl;
 	        break;
 		default:
-			cout<<"\n*** 不合法输入 ***\n"<<endl;
+			cout << "Invalid command" << endl;
 		}
-		cout<<"please input command:";
-		cin>>sign;
-	}while (sign!='q');
+		cout <<"Command:";
+		cin >> input;
+        
+	}while (input! = 'q');
 
 	return 0;
-	
 }
