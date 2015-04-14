@@ -41,7 +41,8 @@ void Link::read_from_infile(string filename)
 	string elem[100];
 	int count = 0;
 	ifstream infile(filename.c_str(),ios::in);
-	if (!infile) {
+	if (!infile) 
+	{
 		cout<<"open error!"<<endl;
 		exit(1);
 	}
@@ -87,13 +88,15 @@ bool Link::insert(int num,const string& item)
 	setpos(num);
 	node* temp=new node;
 	temp->element=item;
-	if (fence->next!=NULL) {
+	if (fence->next!=NULL) 
+	{
 		temp->next=fence->next;
 		fence->next->pre=temp;
 		fence->next=temp;
 		temp->pre=fence;
 	}
-	else {
+	else 
+	{
 		fence->next=temp;
 		temp->pre=fence;
 		tail=fence->next;
@@ -244,15 +247,15 @@ bool Link::findappointstring(string str)
 	while (temp!=NULL) {
 		num++;
 		if (temp->element==str) {
-			cout<<"找到了！"<<endl;
-			cout<<"字符串在第"<<num<<" 行"<<endl;
+			cout<<"Found"<<endl;
+			cout<<"This is at line No."<<num<<"."<<endl;
 			cout<<"the appointed is :"<<temp->element<<endl;
 			bo=false;
 		}
 		temp=temp->next;
 	}
 	if (bo) {
-		cout<<"抱歉！未找到！"<<endl;
+		cout<<"Not exist"<<endl;
 	}
 	return true;
 }
@@ -310,19 +313,21 @@ bool Link::changeonelinecharacter(int num,string& str)
 	char z[256];
 	int len=0;
 	string str2;
+
 	node* temp;
 	setpos(num);
 	temp=fence;	
 	strcpy(m,str.c_str());	
 	strcpy(n,temp->element.c_str());
 	num=temp->element.find(m,0);
+
 	if (temp->element.find(m,0) != string::npos) {
-		cout<<"请输入修改后的字符串(必须与上面查的字符串长度相等):";
+		cout<<"Re-enter the string(same length)";
 		cin>>str2;
 		while (str.length() != str2.length()) {
-			cout<<"错误！长度不一致！"<<endl;
-			cout<<"请再次输入:"<<endl;
-			cout<<"请输入修改后的字符串(必须与上面查的字符串长度相等):";
+			cout<<"Wrong！Different length"<<endl;
+			cout<<"Please re-enter:"<<endl;
+			cout<<"Re-enter the string(same length):";
 			cin>>str2;
 		}
 		len=str2.length();
@@ -350,7 +355,8 @@ bool Link::findinallstring(string& str)
 	node* temp;
 	temp=head;
 	strcpy(m,str.c_str());
-	while (temp->next!=NULL) {
+	while (temp->next!=NULL) 
+	{
 		temp=temp->next;
 		num++;
 		if (temp->element.find(m,0) != string::npos) {
