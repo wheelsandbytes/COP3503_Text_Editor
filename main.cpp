@@ -20,7 +20,7 @@ int main()
         {
 		case '?':
 		case 'h':
-                
+
 			cout << "================================================" <<endl;
 			cout << "                    Commands                    " <<endl;
             cout << "a: Modify part of a line       c: Modify line   " << endl
@@ -97,7 +97,7 @@ int main()
 		case'r':
 			{
 				link.clear();
-				link.read_from_infile(filename1);
+				link.read_from_infile(file_name_1);
 				link.print();
 			}
 			break;
@@ -106,12 +106,12 @@ int main()
 			break;
 		case'w':
 			cout << "Enter file name: ";
-	        cin >> filename2;
+	        cin >> file_name_2;
             cout << endl;
-			link.save_to_file(filename2);
+			link.save_to_file(file_name_2);
 			break;
 		case'k':
-			link.save_to_file(filename1);
+			link.save_to_file(file_name_1);
 			break;
 		case'm':
 			char new_file[30];
@@ -124,8 +124,8 @@ int main()
 		}
 		cout <<"Command:";
 		cin >> input;
-        
-	}while (input! = 'q');
+
+	}while (input != 'q');
 
 	return 0;
 }
