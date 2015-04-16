@@ -185,7 +185,7 @@ int main()
 		case 'h':
 
 			system("clear");
-			mainmenu()
+			mainmenu();
             link.print();
 			break;
 	
