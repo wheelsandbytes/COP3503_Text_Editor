@@ -1,5 +1,7 @@
 #include "editor.h"
 #include <fstream>
+#include "string.h"
+#include <cstdlib>
 using namespace std;
 
 /************************************************************************/
