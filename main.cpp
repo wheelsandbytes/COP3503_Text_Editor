@@ -7,14 +7,14 @@ void mainmenu(){
 	system("clear");
 			cout << "================================================" <<endl;
 			cout << "                    Commands                    " <<endl;
-            cout << "a: Modify part of a line       c: Modify line   " <<endl
-			     << "d: Remove a line               f: Find line     " <<endl
-			     << "g: Display line                i: Insert line   " <<endl
-			     << "r: Read file                   k: Save file     " <<endl
-                 << "o: Find part of a line         q: Exit          " <<endl
-			     << "m: Create file                 v: Display all   " <<endl
-			     << "w: Cover file content          x: Clean all     " <<endl
-                 << "l: Display length                               " <<endl
+            cout << "A: Modify part of a line       I: Modify line   " <<endl
+			     << "B: Remove a line               J: Find line     " <<endl
+			     << "C: Display line                K: Insert line   " <<endl
+			     << "D: Read file                   L: Save file     " <<endl
+                 << "E: Find part of a line         M: Display all   " <<endl
+			     << "F: Create file                 N: Delete all    " <<endl
+			     << "G: Cover file content                           " <<endl
+                 << "H: Display length              X: Exit          " <<endl
                  <<"=================================================" <<endl<<endl;
             cout <<"-------------------------------------------------" <<endl
             	 <<"               Current State of File             " <<endl
@@ -42,40 +42,8 @@ int main()
 	do{
 		switch(input)
         {
-		case '?':
-		case 'h':
-
-			system("clear");
-			cout << "================================================" <<endl;
-			cout << "                    Commands                    " <<endl;
-            cout << "a: Modify part of a line       c: Modify line   " <<endl
-			     << "d: Remove a line               f: Find line     " <<endl
-			     << "g: Display line                i: Insert line   " <<endl
-			     << "r: Read file                   k: Save file     " <<endl
-                 << "o: Find part of a line         q: Exit          " <<endl
-			     << "m: Create file                 v: Display all   " <<endl
-			     << "w: Cover file content          x: Clean all     " <<endl
-                 << "l: Display length                               " <<endl
-                 <<"=================================================" <<endl;
-            cout <<"-------------------------------------------------" <<endl
-            	 <<"               Current State of File             " <<endl
-            	 <<"                                                 " <<endl;
-
-            link.print();
-			break;
-		case'x':
-			system("CLS");
-			mainmenu();
-			link.print();
-			break;
-		case'o':
-			cout << "Enter string: ";
-			cin >> str_1;
-			link.findinallstring(str_1);
-			mainmenu();
-			link.print();
-			break;
-		case'a':
+        //Modify Part of a Line
+        case'A':
 			cout << "Enter line number: ";
 			cin >> num;
             cout << endl;
@@ -87,7 +55,77 @@ int main()
 			link.print();
 			break;
 
-		case'c':
+		//Remove a line
+		case'B':
+			cout << "Enter line number: ";
+			cin >> num;
+            cout << endl;
+			link.deleteoneline(num);
+			link.print();
+			mainmenu();
+			link.print();
+			break;
+		
+		//Dislay Line
+		case'C':
+			cout << "Enter line number";
+			cin >> num;
+            cout << endl;
+			link.setpos(num);
+			link.displayoneline();
+			mainmenu();
+			link.print();
+			break;
+
+		//Read File
+		case'D':
+			{
+				link.clear();
+				link.read_from_infile(file_name_1);
+				link.print();
+			}
+			mainmenu();
+			link.print();
+			break;
+
+		//Find Part of a line
+		case'E':
+			cout << "Enter string: ";
+			cin >> str_1;
+			link.findinallstring(str_1);
+			mainmenu();
+			link.print();
+			break;
+
+		//Create file
+		case'F':
+			char new_file[30];
+			cout << "Enter file name: ";
+			cin >> new_file;
+            cout << endl;
+            mainmenu();
+            link.print();
+	        break;
+
+	    //Cover File Content
+	    case'G':
+			cout << "Enter file name: ";
+	        cin >> file_name_2;
+            cout << endl;
+			link.save_to_file(file_name_2);
+			mainmenu();
+			link.print();
+			break;
+
+		//Display Length
+		case'H':
+			link.longlength();
+			mainmenu();
+			link.print();
+			break;
+
+		//modify line
+		case'I':
 			cout << "Enter line number: ";
 			cin >> num;
             cout << endl;
@@ -98,16 +136,9 @@ int main()
 			mainmenu();
 			link.print();
 			break;
-		case'd':
-			cout << "Enter line number: ";
-			cin >> num;
-            cout << endl;
-			link.deleteoneline(num);
-			link.print();
-			mainmenu();
-			link.print();
-			break;
-		case'f':
+
+		//find line
+		case'J':
 			cout << "Enter string: ";
 			cin >> str_1;
             cout << endl;
@@ -115,16 +146,9 @@ int main()
 			mainmenu();
 			link.print();
 			break;
-		case'g':
-			cout << "Enter line number";
-			cin >> num;
-            cout << endl;
-			link.setpos(num);
-			link.displayoneline();
-			mainmenu();
-			link.print();
-			break;
-		case'i':
+
+		//insert line
+		case'K':
 			cout << "Enter line number (preceeding): ";
 			cin >> num;
             cout << endl;
@@ -136,54 +160,42 @@ int main()
 			mainmenu();
 			link.print();
 			break;
-		case'l':
-			link.longlength();
-			mainmenu();
-			link.print();
-			break;
 
-		case'r':
-			{
-				link.clear();
-				link.read_from_infile(file_name_1);
-				link.print();
-			}
-			mainmenu();
-			link.print();
-			break;
-		case'v':
-			link.print();
-			mainmenu();
-			link.print();
-			break;
-		case'w':
-			cout << "Enter file name: ";
-	        cin >> file_name_2;
-            cout << endl;
-			link.save_to_file(file_name_2);
-			mainmenu();
-			link.print();
-			break;
-		case'k':
+		//save file
+		case'L':
 			link.save_to_file(file_name_1);
 			mainmenu();
 			link.print();
 			break;
-		case'm':
-			char new_file[30];
-			cout << "Enter file name: ";
-			cin >> new_file;
-            cout << endl;
-            mainmenu();
+		
+		//display all
+		case'M':
+			link.print();
+			mainmenu();
+			link.print();
+			break;
+
+		//delete all
+		case'N':
+			system("CLS");
+			mainmenu();
+			link.print();
+			break;
+
+		case 'h':
+
+			system("clear");
+			mainmenu()
             link.print();
-	        break;
+			break;
+	
 		default:
 			cout << "Invalid command" << endl;
 		}
 		cout <<"Command:";
 		cin >> input;
 
-	}while (input != 'q');
+	}while (input != 'X');
 
 	return 0;
 }
