@@ -182,12 +182,14 @@ int main()
 			link.print();
 			break;
 
+		/*
 		case 'h':
 
 			system("clear");
 			mainmenu();
             link.print();
 			break;
+		*/
 	
 		default:
 			cout << "Invalid command" << endl;
