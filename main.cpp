@@ -20,7 +20,7 @@ void mainmenu(){
             	 <<"               Current State of File             " <<endl
             	 <<"                                                 " <<endl;
 
-            
+
 }
 
 
@@ -43,7 +43,7 @@ int main()
 		switch(input)
         {
         //Modify Part of a Line
-        case'A':
+        case'a':
 			cout << "Enter line number: ";
 			cin >> num;
             cout << endl;
@@ -56,7 +56,7 @@ int main()
 			break;
 
 		//Remove a line
-		case'B':
+		case'b':
 			cout << "Enter line number: ";
 			cin >> num;
             cout << endl;
@@ -65,9 +65,9 @@ int main()
 			mainmenu();
 			link.print();
 			break;
-		
+
 		//Dislay Line
-		case'C':
+		case'c':
 			cout << "Enter line number";
 			cin >> num;
             cout << endl;
@@ -78,7 +78,7 @@ int main()
 			break;
 
 		//Read File
-		case'D':
+		case'd':
 			{
 				link.clear();
 				link.read_from_infile(file_name_1);
@@ -89,7 +89,7 @@ int main()
 			break;
 
 		//Find Part of a line
-		case'E':
+		case'e':
 			cout << "Enter string: ";
 			cin >> str_1;
 			link.findinallstring(str_1);
@@ -98,7 +98,7 @@ int main()
 			break;
 
 		//Create file
-		case'F':
+		case'f':
 			char new_file[30];
 			cout << "Enter file name: ";
 			cin >> new_file;
@@ -108,7 +108,7 @@ int main()
 	        break;
 
 	    //Cover File Content
-	    case'G':
+	    case'g':
 			cout << "Enter file name: ";
 	        cin >> file_name_2;
             cout << endl;
@@ -118,14 +118,14 @@ int main()
 			break;
 
 		//Display Length
-		case'H':
+		case'h':
 			link.longlength();
 			mainmenu();
 			link.print();
 			break;
 
 		//modify line
-		case'I':
+		case'i':
 			cout << "Enter line number: ";
 			cin >> num;
             cout << endl;
@@ -138,7 +138,7 @@ int main()
 			break;
 
 		//find line
-		case'J':
+		case'j':
 			cout << "Enter string: ";
 			cin >> str_1;
             cout << endl;
@@ -148,7 +148,7 @@ int main()
 			break;
 
 		//insert line
-		case'K':
+		case'k':
 			cout << "Enter line number (preceeding): ";
 			cin >> num;
             cout << endl;
@@ -162,40 +162,40 @@ int main()
 			break;
 
 		//save file
-		case'L':
+		case'l':
 			link.save_to_file(file_name_1);
 			mainmenu();
 			link.print();
 			break;
-		
+
 		//display all
-		case'M':
+		case'm':
 			link.print();
 			mainmenu();
 			link.print();
 			break;
 
 		//delete all
-		case'N':
+		case'n':
 			system("CLS");
 			mainmenu();
 			link.print();
 			break;
 
-		case 'h':
+		case 'o':
 
 			system("clear");
 			mainmenu();
             link.print();
 			break;
-	
+
 		default:
 			cout << "Invalid command" << endl;
 		}
 		cout <<"Command:";
 		cin >> input;
 
-	}while (input != 'X');
+	}while (input !='x');
 
 	return 0;
 }

@@ -43,7 +43,7 @@ void Link::read_from_infile(string filename)
 	string elem[100];
 	int count = 0;
 	ifstream infile(filename.c_str(),ios::in);
-	if (!infile) 
+	if (!infile)
 	{
 		cout<<"open error!"<<endl;
 		exit(1);
@@ -90,14 +90,14 @@ bool Link::insert(int num,const string& item)
 	setpos(num);
 	node* temp=new node;
 	temp->element=item;
-	if (fence->next!=NULL) 
+	if (fence->next!=NULL)
 	{
 		temp->next=fence->next;
 		fence->next->pre=temp;
 		fence->next=temp;
 		temp->pre=fence;
 	}
-	else 
+	else
 	{
 		fence->next=temp;
 		temp->pre=fence;
@@ -110,10 +110,10 @@ bool Link::insert(int num,const string& item)
 
 
 /************************************************************************/
-/*    append string to end of the list                                  */                                                     
+/*    append string to end of the list                                  */
 /*     the list is doubly linked list                                   */
 /************************************************************************/
-bool Link::append(const string&item)  
+bool Link::append(const string&item)
 {
 	node* p;
 	p=tail;
@@ -220,7 +220,7 @@ int Link::longlength()
 
 	cout<<"the number of the character is:"<<num<<endl;
 	return length;
-	
+
 }
 /************************************************************************/
 /*               display one line                                       */
@@ -293,13 +293,13 @@ bool Link::deleteoneline(int num)
 }
 /************************************************************************/
 /* according you enter line number to find the line                     */
-/*replace the find line to you enter string                             */
+/* replace the find line to you enter string                            */
 /************************************************************************/
 bool Link::changeline(int num,string& str)
 {
 	setpos(num);
 	fence->element=str;
-	return true;	
+	return true;
 }
 
 
@@ -318,8 +318,8 @@ bool Link::changeonelinecharacter(int num,string& str)
 
 	node* temp;
 	setpos(num);
-	temp=fence;	
-	strcpy(m,str.c_str());	
+	temp=fence;
+	strcpy(m,str.c_str());
 	strcpy(n,temp->element.c_str());
 	num=temp->element.find(m,0);
 
@@ -357,7 +357,7 @@ bool Link::findinallstring(string& str)
 	node* temp;
 	temp=head;
 	strcpy(m,str.c_str());
-	while (temp->next!=NULL) 
+	while (temp->next!=NULL)
 	{
 		temp=temp->next;
 		num++;
