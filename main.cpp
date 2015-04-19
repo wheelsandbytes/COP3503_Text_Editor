@@ -7,14 +7,14 @@ void mainmenu(){
 	system("clear");
 			cout << "================================================" <<endl;
 			cout << "                    Commands                    " <<endl;
-            cout << "A: Modify part of a line       I: Modify line   " <<endl
-			     << "B: Remove a line               J: Find line     " <<endl
-			     << "C: Display line                K: Insert line   " <<endl
-			     << "D: Read file                   L: Save file     " <<endl
-                 << "E: Find part of a line         M: Display all   " <<endl
-			     << "F: Create file                 N: Delete all    " <<endl
-			     << "G: Cover file content                           " <<endl
-                 << "H: Display length              X: Exit          " <<endl
+            cout << "a: Modify part of a line       i: Modify line   " <<endl
+			     << "b: Remove a line               j: Find line     " <<endl
+			     << "c: Display line                k: Insert line   " <<endl
+			     << "d: Read file                   l: Save file     " <<endl
+                 << "e: Find part of a line         m: Display all   " <<endl
+			     << "f: Create file                 n: Delete all    " <<endl
+			     << "g: Cover file content                           " <<endl
+                 << "h: Display length              x: Exit          " <<endl
                  <<"=================================================" <<endl<<endl;
             cout <<"-------------------------------------------------" <<endl
             	 <<"               Current State of File             " <<endl
@@ -182,20 +182,34 @@ int main()
 			link.print();
 			break;
 
+<<<<<<< HEAD
 		case 'o':
+=======
+		/*
+		case 'h':
+>>>>>>> origin/master
 
 			system("clear");
 			mainmenu();
             link.print();
 			break;
+<<<<<<< HEAD
 
+=======
+		*/
+
+>>>>>>> origin/master
 		default:
 			cout << "Invalid command" << endl;
 		}
 		cout <<"Command:";
 		cin >> input;
 
+<<<<<<< HEAD
 	}while (input !='x');
+=======
+	}while (input != 'x');
+>>>>>>> origin/master
 
 	return 0;
 }
