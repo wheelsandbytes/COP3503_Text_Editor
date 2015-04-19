@@ -182,9 +182,9 @@ int main()
 			link.print();
 			break;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		case 'o':
-=======
+//=======
 		/*
 		case 'h':
 >>>>>>> origin/master
@@ -198,14 +198,14 @@ int main()
 =======
 		*/
 
->>>>>>> origin/master
+//>>>>>>> origin/master
 		default:
 			cout << "Invalid command" << endl;
 		}
 		cout <<"Command:";
 		cin >> input;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	}while (input !='x');
 =======
 	}while (input != 'x');
