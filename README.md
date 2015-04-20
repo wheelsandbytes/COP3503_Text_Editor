@@ -1,10 +1,23 @@
 # COP3503_Text_Editor
 
-Compiles on both Windows and Mac OS.
+Project Team #38
 
-Clone to your home folder. In Terminal, compile and run on Mac and Linux with:
+Members:
 
-cd ~/COP3503_Text_Editor/
+Jiaying Wang
+
+Chin-Ming Chang
+
+Artem Iryshkov
+
+Will Hsiung
+
+Nathan DeKrey
+
+Keven Huang
+
+
+In the source code directory, compile and run on Mac and Linux with:
 
 g++ -o editor *.cpp -Wall
 

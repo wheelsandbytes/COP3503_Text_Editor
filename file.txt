@@ -1,3 +1,4 @@
-hello
-world
-programming
+hello world
+this is a sample text file
+we love programming
+we are project team 38
