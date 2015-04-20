@@ -16,10 +16,9 @@ void mainmenu(){
 			     << "g: Cover file content                           " <<endl
                  << "h: Display length              x: Exit          " <<endl
                  <<"=================================================" <<endl<<endl;
-            cout <<"-------------------------------------------------" <<endl
-            	 <<"               Current State of File             " <<endl
-            	 <<"                                                 " <<endl;
-
+            // cout <<"-------------------------------------------------" <<endl
+            // 	 <<"               Current State of File             " <<endl
+            // 	 <<"                                                 " <<endl;
 
 }
 
@@ -30,6 +29,7 @@ int main()
 	char input = 'h';
 	string file_name_1, file_name_2, str_1, str_2;
 	int num;
+	system("clear");
     cout<< "=====================================================" <<endl
         << "            The editor has been activated            " <<endl
         << "=====================================================" <<endl;
@@ -38,20 +38,21 @@ int main()
 	link.setStart();
 	link.setEnd();
 	link.read_from_infile(file_name_1);
-	system("CLS");
+	// system("clear");
+	mainmenu();
 	do{
 		switch(input)
         {
         //Modify Part of a Line
-        case'a':
+		case'a':
 			cout << "Enter line number: ";
 			cin >> num;
             cout << endl;
 			cout << "Enter string: ";
 			cin >> str_1;
             cout << endl;
-			link.changeonelinecharacter(num,str_1);
-			mainmenu();
+			link.changeline(num,str_1);
+			// mainmenu();
 			link.print();
 			break;
 
@@ -61,31 +62,28 @@ int main()
 			cin >> num;
             cout << endl;
 			link.deleteoneline(num);
-			link.print();
-			mainmenu();
+			// link.print();
+			// mainmenu();
 			link.print();
 			break;
 
 		//Dislay Line
 		case'c':
-			cout << "Enter line number";
+			cout << "Enter line number: ";
 			cin >> num;
             cout << endl;
 			link.setpos(num);
 			link.displayoneline();
-			mainmenu();
+			// mainmenu();
 			link.print();
 			break;
 
 		//Read File
 		case'd':
-			{
-				link.clear();
-				link.read_from_infile(file_name_1);
-				link.print();
-			}
-			mainmenu();
+			link.clear();
+			link.read_from_infile(file_name_1);
 			link.print();
+			// mainmenu();
 			break;
 
 		//Find Part of a line
@@ -93,7 +91,7 @@ int main()
 			cout << "Enter string: ";
 			cin >> str_1;
 			link.findinallstring(str_1);
-			mainmenu();
+			// mainmenu();
 			link.print();
 			break;
 
@@ -113,15 +111,15 @@ int main()
 	        cin >> file_name_2;
             cout << endl;
 			link.save_to_file(file_name_2);
-			mainmenu();
+			// mainmenu();
 			link.print();
 			break;
 
 		//Display Length
 		case'h':
 			link.longlength();
-			mainmenu();
-			link.print();
+			// mainmenu();
+			// link.print();
 			break;
 
 		//modify line
@@ -133,7 +131,7 @@ int main()
 			cin >> str_1;
             cout << endl;
 			link.changeline(num,str_1);
-			mainmenu();
+			// mainmenu();
 			link.print();
 			break;
 
@@ -143,7 +141,7 @@ int main()
 			cin >> str_1;
             cout << endl;
 			link.findappointstring(str_1);
-			mainmenu();
+			// mainmenu();
 			link.print();
 			break;
 
@@ -157,59 +155,46 @@ int main()
             cout << endl;
 			link.insert(num,str_1);
 			link.print();
-			mainmenu();
+			// mainmenu();
 			link.print();
 			break;
 
 		//save file
 		case'l':
 			link.save_to_file(file_name_1);
-			mainmenu();
+			// mainmenu();
 			link.print();
+			cout << "File saved";
 			break;
 
 		//display all
 		case'm':
-			link.print();
+			// link.print();
 			mainmenu();
 			link.print();
 			break;
 
-		//delete all
+		//clear screen
 		case'n':
-			system("CLS");
 			mainmenu();
 			link.print();
 			break;
 
-//<<<<<<< HEAD
-		case 'o':
-//=======
 		/*
 		case 'h':
->>>>>>> origin/master
-
 			system("clear");
 			mainmenu();
             link.print();
 			break;
-<<<<<<< HEAD
-
-=======
 		*/
-
-//>>>>>>> origin/master
 		default:
 			cout << "Invalid command" << endl;
+			// mainmenu();
 		}
 		cout <<"Command:";
 		cin >> input;
 
-//<<<<<<< HEAD
 	}while (input !='x');
-=======
-	}while (input != 'x');
->>>>>>> origin/master
 
 	return 0;
 }

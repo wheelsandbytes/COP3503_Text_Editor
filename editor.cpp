@@ -186,6 +186,9 @@ bool Link::setpos(int pos)
 /************************************************************************/
 void Link::print() const
 {
+	cout <<"-------------------------------------------------" <<endl
+		<<"               Current State of File             " <<endl
+		<<"                                                 " <<endl;
 	node* temp;
 	int num=0;
 	temp=head;
@@ -216,9 +219,9 @@ int Link::longlength()
 		length++;
 		temp=temp->next;
 	}
-	cout<<"the file length is"<<length<<endl;
+	cout<<"The file length is: "<<length<<endl;
 
-	cout<<"the number of the character is:"<<num<<endl;
+	cout<<"The number of the character is: "<<num<<endl;
 	return length;
 
 }
@@ -369,7 +372,7 @@ bool Link::findinallstring(string& str)
 	}
 	return true;
 }
-void creatfile()
+void createfile()
 {
 	char newfile[30];
 	cout<<"Name for new file:"<<endl;
